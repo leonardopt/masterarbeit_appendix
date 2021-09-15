@@ -1,0 +1,47 @@
+TDTSAA_SUITEDEF_FILE	Version: V1	Createdate: 10-Mar-2021 16:21:03	Infotext: Created by saa_setup_testsuite	ExemplaryMatchingFile:/analysis/share/corinna_kai/afx/sub-01/func/sub-01_task-afx_events.tsv						
+SUITEDEF INFO	This is a TDTSAA definition file. If in txt/tsv/csv form, it can be viewed and edited with e.g. excel. The file contains multiple sections (general, variables, combinations) and a info at the end of each section. If any field still contains % (except %FILENAME%), these need to be filled. Do not change the first and the last rows (---,*info,---) of each section. You can add extra rows in the VARIABLES and COMBINATION section. You can add extra columns that will be loaded, e.g. to define expectations for other measures than accuracy_minus_chance. See saa_load_testsuitedefinition.									
+										
+GENERAL										
+testsuiteName	useSessionMean	nrandn	session_var	trial_var						
+%FILENAME%	0	100	run	trial						
+---										
+GENERALINFO										
+Name of this testuite (if empty or %FILENAME%, the name of this filename will be used)	0: dont use sessionmean, 1: use session mean, empty: no info. See saa_sessionmean_per_condition	int: number of SYNTH.randn datasets	(Optional: Set the name of a session_var for the loaded dataset)	(Optional: Set the name of a trial_var for the loaded dataset)						
+---										
+ 										
+VARIABLES										
+columnName	basicTestcaseName	useBasicTestcase	dummyvarName	useDummyvar	prev1Name	usePrev1	dummyPrev1Name	useDummyPrev1	Expectation	Description
+onset	onset	1	onset.dummyvar	0	onset.prev1	1	onset.dummyvar.prev1	0		
+duration	duration	1	duration.dummyvar	0	duration.prev1	1	duration.dummyvar.prev1	0		
+trial	trial	1	trial.dummyvar	0	trial.prev1	1	trial.dummyvar.prev1	0		
+trial_type	trial_type	1	trial_type.dummyvar	1	trial_type.prev1	1	trial_type.dummyvar.prev1	1		
+difficulty	difficulty	1	difficulty.dummyvar	1	difficulty.prev1	1	difficulty.dummyvar.prev1	1		
+response_time	response_time	1	response_time.dummyvar	0	response_time.prev1	1	response_time.dummyvar.prev1	0		
+stim_file	stim_file	1	stim_file.dummyvar	1	stim_file.prev1	1	stim_file.dummyvar.prev1	1		
+buttonpress	buttonpress	1	buttonpress.dummyvar	1	buttonpress.prev1	1	buttonpress.dummyvar.prev1	1		
+button_onset	button_onset	1	button_onset.dummyvar	0	button_onset.prev1	1	button_onset.dummyvar.prev1	0		
+accuracy	accuracy	1	accuracy.dummyvar	1	accuracy.prev1	1	accuracy.dummyvar.prev1	1		
+hand	hand	1	hand.dummyvar	1	hand.prev1	1	hand.dummyvar.prev1	1		
+run	run	1	run.dummyvar	1	run.prev1	1	run.dummyvar.prev1	1		
+block	block	1	block.dummyvar	1	block.prev1	1	block.dummyvar.prev1	1		
+block_type	block_type	1	block_type.dummyvar	1	block_type.prev1	1	block_type.dummyvar.prev1	1		
+cue	cue	1	cue.dummyvar	1	cue.prev1	1	cue.dummyvar.prev1	1		
+cue_onset	cue_onset	1	cue_onset.dummyvar	0	cue_onset.prev1	1	cue_onset.dummyvar.prev1	0		
+rest_onset	rest_onset	1	rest_onset.dummyvar	0	rest_onset.prev1	1	rest_onset.dummyvar.prev1	0		
+---										
+VARIABLESINFO										
+Name of column (="variable") in the datatable	Name of testcase that is directly created from the variable (column in the datatable)	1: use this basicTestcase, 0: do not use it	Name for a dummycoded version of this variable (see saa_dummyvar)	1: use this dummycoded variable, 0: do not use it	Name for the prev1-version version of the basic variable (all data shifted by 1, see saa_add_prev)	1: use this prev1 variable, 0: do not use it	Name for the prev1-version version of the dummycoded variable (all data shifted by 1 trial and then dummycoded, see saa_add_prev + saa_dummyvar)	1: use this dummycoded prev1 variable, 0: do not use it	Expectation for this variable as text	
+Note: Each row above can create multiple testcases (one per useXX=1 entry), and typically even more data columns (e.g. one column for basicPrev1, multiple columns for dummycoding, one column per unique element).										
+---										
+ 										
+COMBINATIONS										
+combinationTestcaseName	CombinedVariables	useCombination	Expectation	Description						
+example_combination	{onset; onset.dummyvar.prev1}	0								
+---										
+COMBINATIONSINFO										
+Testcasename	List of variables to combine	1: use this comination, 0: do not use this combination								
+Note: You can also use individual column names that are created e.g. during dummy coding, e.g. {somevariable.dummyvar$2} would only take the column where the variable "somevariable.dummyvar" had the values 2, or {somevariable.dummyvar$2; somevariable.dummyvar$3} values 2 and 3										
+---										
+ 										
+FILEINFO										
+Add text here if you like										
